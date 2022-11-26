@@ -1,3 +1,4 @@
+import 'package:fakestore/application/cubit/product_info_cubit.dart';
 import 'package:fakestore/application/cubit/products_cubit.dart';
 import 'package:fakestore/infrastructure/product_repository.dart';
 import 'package:fakestore/view/home_page.dart';
@@ -14,8 +15,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ProductsCubit>(
-      create: (context) => ProductsCubit(ProductRepository()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ProductsCubit>(
+          create: (context) => ProductsCubit(ProductRepository()),
+        ),
+        BlocProvider(
+          create: (context) => ProductInfoCubit(ProductRepository()),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

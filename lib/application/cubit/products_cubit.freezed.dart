@@ -25,9 +25,9 @@ mixin _$ProductsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Products> produts)? loaded,
-    TResult Function(String massage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Products> produts)? loaded,
+    TResult? Function(String massage)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$ProductsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ErrorState value)? error,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$ProductsState {
 abstract class $ProductsStateCopyWith<$Res> {
   factory $ProductsStateCopyWith(
           ProductsState value, $Res Function(ProductsState) then) =
-      _$ProductsStateCopyWithImpl<$Res>;
+      _$ProductsStateCopyWithImpl<$Res, ProductsState>;
 }
 
 /// @nodoc
-class _$ProductsStateCopyWithImpl<$Res>
+class _$ProductsStateCopyWithImpl<$Res, $Val extends ProductsState>
     implements $ProductsStateCopyWith<$Res> {
   _$ProductsStateCopyWithImpl(this._value, this._then);
 
-  final ProductsState _value;
   // ignore: unused_field
-  final $Res Function(ProductsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,14 +89,11 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingStateCopyWithImpl<$Res>
-    extends _$ProductsStateCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$_LoadingState>
     implements _$$_LoadingStateCopyWith<$Res> {
   __$$_LoadingStateCopyWithImpl(
       _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
-      : super(_value, (v) => _then(v as _$_LoadingState));
-
-  @override
-  _$_LoadingState get _value => super._value as _$_LoadingState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -130,9 +128,9 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Products> produts)? loaded,
-    TResult Function(String massage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Products> produts)? loaded,
+    TResult? Function(String massage)? error,
   }) {
     return loading?.call();
   }
@@ -164,9 +162,9 @@ class _$_LoadingState implements _LoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ErrorState value)? error,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
   }) {
     return loading?.call(this);
   }
@@ -195,26 +193,25 @@ abstract class _$$_LoadedStateCopyWith<$Res> {
   factory _$$_LoadedStateCopyWith(
           _$_LoadedState value, $Res Function(_$_LoadedState) then) =
       __$$_LoadedStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({List<Products> produts});
 }
 
 /// @nodoc
 class __$$_LoadedStateCopyWithImpl<$Res>
-    extends _$ProductsStateCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$_LoadedState>
     implements _$$_LoadedStateCopyWith<$Res> {
   __$$_LoadedStateCopyWithImpl(
       _$_LoadedState _value, $Res Function(_$_LoadedState) _then)
-      : super(_value, (v) => _then(v as _$_LoadedState));
+      : super(_value, _then);
 
-  @override
-  _$_LoadedState get _value => super._value as _$_LoadedState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? produts = freezed,
+    Object? produts = null,
   }) {
     return _then(_$_LoadedState(
-      produts == freezed
+      null == produts
           ? _value._produts
           : produts // ignore: cast_nullable_to_non_nullable
               as List<Products>,
@@ -253,6 +250,7 @@ class _$_LoadedState implements _LoadedState {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadedStateCopyWith<_$_LoadedState> get copyWith =>
       __$$_LoadedStateCopyWithImpl<_$_LoadedState>(this, _$identity);
 
@@ -269,9 +267,9 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Products> produts)? loaded,
-    TResult Function(String massage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Products> produts)? loaded,
+    TResult? Function(String massage)? error,
   }) {
     return loaded?.call(produts);
   }
@@ -303,9 +301,9 @@ class _$_LoadedState implements _LoadedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ErrorState value)? error,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -339,26 +337,25 @@ abstract class _$$_ErrorStateCopyWith<$Res> {
   factory _$$_ErrorStateCopyWith(
           _$_ErrorState value, $Res Function(_$_ErrorState) then) =
       __$$_ErrorStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({String massage});
 }
 
 /// @nodoc
 class __$$_ErrorStateCopyWithImpl<$Res>
-    extends _$ProductsStateCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res, _$_ErrorState>
     implements _$$_ErrorStateCopyWith<$Res> {
   __$$_ErrorStateCopyWithImpl(
       _$_ErrorState _value, $Res Function(_$_ErrorState) _then)
-      : super(_value, (v) => _then(v as _$_ErrorState));
+      : super(_value, _then);
 
-  @override
-  _$_ErrorState get _value => super._value as _$_ErrorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? massage = freezed,
+    Object? massage = null,
   }) {
     return _then(_$_ErrorState(
-      massage == freezed
+      null == massage
           ? _value.massage
           : massage // ignore: cast_nullable_to_non_nullable
               as String,
@@ -384,15 +381,15 @@ class _$_ErrorState implements _ErrorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ErrorState &&
-            const DeepCollectionEquality().equals(other.massage, massage));
+            (identical(other.massage, massage) || other.massage == massage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(massage));
+  int get hashCode => Object.hash(runtimeType, massage);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
       __$$_ErrorStateCopyWithImpl<_$_ErrorState>(this, _$identity);
 
@@ -409,9 +406,9 @@ class _$_ErrorState implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<Products> produts)? loaded,
-    TResult Function(String massage)? error,
+    TResult? Function()? loading,
+    TResult? Function(List<Products> produts)? loaded,
+    TResult? Function(String massage)? error,
   }) {
     return error?.call(massage);
   }
@@ -443,9 +440,9 @@ class _$_ErrorState implements _ErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_LoadedState value)? loaded,
-    TResult Function(_ErrorState value)? error,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadedState value)? loaded,
+    TResult? Function(_ErrorState value)? error,
   }) {
     return error?.call(this);
   }

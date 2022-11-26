@@ -37,7 +37,8 @@ mixin _$Products {
 /// @nodoc
 abstract class $ProductsCopyWith<$Res> {
   factory $ProductsCopyWith(Products value, $Res Function(Products) then) =
-      _$ProductsCopyWithImpl<$Res>;
+      _$ProductsCopyWithImpl<$Res, Products>;
+  @useResult
   $Res call(
       {int id,
       String title,
@@ -49,53 +50,56 @@ abstract class $ProductsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductsCopyWithImpl<$Res> implements $ProductsCopyWith<$Res> {
+class _$ProductsCopyWithImpl<$Res, $Val extends Products>
+    implements $ProductsCopyWith<$Res> {
   _$ProductsCopyWithImpl(this._value, this._then);
 
-  final Products _value;
   // ignore: unused_field
-  final $Res Function(Products) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? price = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? price = null,
     Object? description = freezed,
-    Object? category = freezed,
-    Object? image = freezed,
-    Object? rating = freezed,
+    Object? category = null,
+    Object? image = null,
+    Object? rating = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      price: price == freezed
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: category == freezed
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      rating: rating == freezed
+      rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -105,6 +109,7 @@ abstract class _$$_ProductsCopyWith<$Res> implements $ProductsCopyWith<$Res> {
           _$_Products value, $Res Function(_$_Products) then) =
       __$$_ProductsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String title,
@@ -116,51 +121,50 @@ abstract class _$$_ProductsCopyWith<$Res> implements $ProductsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProductsCopyWithImpl<$Res> extends _$ProductsCopyWithImpl<$Res>
+class __$$_ProductsCopyWithImpl<$Res>
+    extends _$ProductsCopyWithImpl<$Res, _$_Products>
     implements _$$_ProductsCopyWith<$Res> {
   __$$_ProductsCopyWithImpl(
       _$_Products _value, $Res Function(_$_Products) _then)
-      : super(_value, (v) => _then(v as _$_Products));
+      : super(_value, _then);
 
-  @override
-  _$_Products get _value => super._value as _$_Products;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? price = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? price = null,
     Object? description = freezed,
-    Object? category = freezed,
-    Object? image = freezed,
-    Object? rating = freezed,
+    Object? category = null,
+    Object? image = null,
+    Object? rating = null,
   }) {
     return _then(_$_Products(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      price: price == freezed
+      price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: category == freezed
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      rating: rating == freezed
+      rating: null == rating
           ? _value._rating
           : rating // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
@@ -213,36 +217,33 @@ class _$_Products implements _Products {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Products &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.price, price) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.image, image) || other.image == image) &&
             const DeepCollectionEquality().equals(other._rating, _rating));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(price),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(_rating));
+  int get hashCode => Object.hash(runtimeType, id, title, price, description,
+      category, image, const DeepCollectionEquality().hash(_rating));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProductsCopyWith<_$_Products> get copyWith =>
       __$$_ProductsCopyWithImpl<_$_Products>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductsToJson(this);
+    return _$$_ProductsToJson(
+      this,
+    );
   }
 }
 
