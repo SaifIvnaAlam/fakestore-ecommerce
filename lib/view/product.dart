@@ -6,9 +6,9 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Product extends StatelessWidget {
-  final productId;
+  final int productId;
 
-  const Product({super.key, this.productId});
+  const Product({super.key, required this.productId});
 
   @override
   Widget build(BuildContext context) {
